@@ -1,0 +1,228 @@
+:root {
+  --primary: #8b5cf6;       /* Bright purple accent */
+  --secondary: #7c3aed;     /* Gradient accent */
+  --muted: #9ca3af;         /* Lighter text for dark bg */
+  --light: #1f2937;         /* Card background */
+  --bg: #111827;            /* Page background */
+  --text: #f9fafb;          /* Main text color */
+  --error: #f87171;
+  --success: #34d399;
+  --border: #374151;
+  --shadow-light: rgba(0,0,0,0.4);
+  --shadow-heavy: rgba(0,0,0,0.6);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* HEADER */
+.header {
+  padding: 1rem 2rem;
+  background: #1f2937;
+  box-shadow: 0 4px 12px var(--shadow-light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+}
+
+/* MAIN GRID */
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}
+
+/* CARDS */
+.left, .right {
+  background: var(--light);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px var(--shadow-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.left:hover, .right:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px var(--shadow-heavy);
+}
+
+/* FORM STYLING */
+.form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form input, .form select, .form textarea {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  background: #111827;
+  color: var(--text);
+  box-shadow: inset 4px 4px 6px rgba(0,0,0,0.6), inset -4px -4px 6px rgba(255,255,255,0.05);
+  transition: all 0.2s ease;
+}
+
+.form input:focus, .form select:focus, .form textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+}
+
+/* FORM CONTROLS */
+.controls {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+/* TABLE STYLING */
+.table-wrap {
+  overflow-x: auto;
+}
+
+.records-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background: var(--light);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+.records-table th, .records-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.records-table th {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.records-table tr:hover {
+  background: rgba(139, 92, 246, 0.1);
+}
+
+/* BUTTONS */
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  padding: 0.65rem 1.2rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.btn-outline {
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  padding: 0.65rem 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background: var(--error);
+  color: #fff;
+  padding: 0.5rem 0.9rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-danger:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+/* MESSAGES */
+.error {
+  color: var(--error);
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.success {
+  color: var(--success);
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* FOOTER */
+.footer {
+    padding: 1.5rem 2rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+    background: #1f2937;
+    border-top: 1px solid var(--border);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+  }
