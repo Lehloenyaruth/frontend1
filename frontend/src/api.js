@@ -1,1 +1,2 @@
-export const API_BASE = process.env.REACT_APP_API_BASE || 'http://localhost:5000/api';
+// src/api.js
+export const API_BASE = process.env.REACT_APP_API_BASE || 'https://backend-1-n4g9.onrender.com/api';
